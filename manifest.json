@@ -6,9 +6,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.yahoo.co.jp/*",
-        "https://x.com/*",
-        "https://www.facebook.com/*"
+        "<all_urls>"
       ],
       "js": [
         "urlblocker.js"

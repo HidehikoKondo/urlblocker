@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="./popup.js"></script>
     <title>
         popup
     </title>
@@ -20,19 +21,19 @@
             width: 30px;
             height: 30px;
             margin: 10px;
-            border-style: none;
+            /* border-style: none; */
 
         }
 
-        .del {
+        /* .del {
             background-color: tomato;
             color: white;
         }
 
-        .add {
+        .addbutton {
             background-color: darkcyan;
             color: white;
-        }
+        } */
 
         .textbox {
             height: 25px;
@@ -50,8 +51,8 @@
         Block URL
     </h1>
     <div>
-        <input class="textbox" id="addurl" type="textbox" placeholder="https://example.com"><button
-            class="add">+</button>
+        <input class="textbox" id="rejectURL" type="textbox" placeholder="https://example.com">
+        <button id="addbutton">+</button>
     </div>
     <hr>
     <h2>Blocked URLs</h2>
