@@ -7,59 +7,23 @@
         popup
     </title>
     <style>
-        h1 {
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 1px #0003;
-        }
-
-        body {
-            background-color: lightgray;
-        }
-
-        button {
-            width: 30px;
-            height: 30px;
-            margin: 10px;
-            /* border-style: none; */
-
-        }
-
-        /* .del {
-            background-color: tomato;
-            color: white;
-        }
-
-        .addbutton {
-            background-color: darkcyan;
-            color: white;
-        } */
-
-        .textbox {
-            height: 25px;
-            margin: 10px;
-            border-style: none;
-        }
-
-        #addurl {}
-
-        .urls {}
     </style>
 
 <body>
     <h1>
-        Block URL
+        URL Blocker
     </h1>
-    <div>
+    <h2>Block URL</h2>
+    <div id="blockurl">
         <input class="textbox" id="rejectURL" type="textbox" placeholder="https://example.com">
         <button id="addbutton">+</button>
     </div>
     <hr>
     <h2>Blocked URLs</h2>
-    <div>
+
+    <div id="blockedurls">
         <input class="urls textbox" id="1" value="x" disabled><button class="del">×</button>
     </div>
-
-
+    <hr>
 </body>
 </head>

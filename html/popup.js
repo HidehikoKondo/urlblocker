@@ -1,32 +1,20 @@
-//loadedとログを表示して
-console.log('popup.js loaded');
-
-
-// rejectedURLsをlocalStorageから読み込む。存在しない場合は空の配列を使用
+// rejectedURLsをlocalStorageから読み込む。存在しない場合は空の配列にする
 let rejectedURLs = JSON.parse(localStorage.getItem('rejectedURLs')) || [];
-
-console.log(rejectedURLs);
-
-
-
 
 // ページが読み込まれたときに実行
 document.addEventListener('DOMContentLoaded', () => {
-    // displayURLs(); // 保存されているURLを表示
+    //データを表示
+    displayURLs();
 
-    // +ボタンのクリックイベントを設定
+    // +ボタンでブロックするURLを追加
     document.getElementById('addbutton').onclick = () => {
-
-        console.log('pushed button');
-
-        const url = document.getElementById('rejectURL').value; // テキストボックスからURLを取得
-        console.log(url);
-
-
-        if (url) { // URLが空でない場合
-            addURL(url); // URLを追加
-            //document.getElementById('addurl').value = ''; // テキストボックスをクリア
+        const url = document.getElementById('rejectURL').value;
+        if (url) {
+            addURL(url);
+            document.getElementById('rejectURL').value = ''; // テキストボックスをクリア
         }
+        //データを表示更新
+        displayURLs();
     };
 });
 
@@ -36,6 +24,49 @@ function addURL(url) {
     if (!rejectedURLs.includes(url)) {
         rejectedURLs.push(url);
         localStorage.setItem('rejectedURLs', JSON.stringify(rejectedURLs));
-        //displayURLs(); // URLを表示する関数を呼び出す
+        // displayURLs(); // URLを表示する関数を呼び出す
     }
+}
+
+// URLをrejectedURLsから削除し、localStorageに保存する関数
+function removeURL(url) {
+    rejectedURLs = rejectedURLs.filter(u => u !== url);
+    localStorage.setItem('rejectedURLs', JSON.stringify(rejectedURLs));
+    displayURLs(); // 更新されたURLを表示する
+}
+
+function displayURLs() {
+
+    console.log("displayURLS");
+    //id="blockedurls"の子要素をすべて削除
+    const blockedURLsElement = document.getElementById('blockedurls');
+    while (blockedURLsElement.firstChild) {
+        blockedURLsElement.removeChild(blockedURLsElement.firstChild);
+    }
+
+    //ローカルストレージからデータを読み込み
+    let rejectedURLs = JSON.parse(localStorage.getItem('rejectedURLs')) || [];
+    // テキストボックスと×ボタンを作成して、blockedURLsElementに追加する
+    rejectedURLs.forEach(url => {
+        const container = document.createElement('div');
+        container.classList.add('url-container');
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = url;
+        input.disabled = true;
+        container.appendChild(input);
+
+        const closeButton = document.createElement('button');
+        closeButton.textContent = '×';
+        closeButton.addEventListener('click', () => {
+            removeURL(url);
+            container.remove();
+        });
+        container.appendChild(closeButton);
+
+        blockedURLsElement.appendChild(container);
+    });
+
+
 }
