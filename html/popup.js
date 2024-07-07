@@ -60,6 +60,7 @@ function displayURLs() {
 
         const closeButton = document.createElement('button');
         closeButton.textContent = '×';
+        closeButton.classList.add('del');
         closeButton.addEventListener('click', () => {
             removeURL(url);
             container.remove();

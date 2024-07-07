@@ -7,6 +7,54 @@
         popup
     </title>
     <style>
+        body {
+            width: 250px;
+            background-color: darkgray;
+        }
+
+        div {
+            width: 100%;
+        }
+
+        .textbox {
+            height: 20px;
+            border-style: none;
+        }
+
+
+
+        button {
+            margin-left: 5%;
+            border-style: none;
+            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+        }
+
+
+        #addbutton {
+            background-color: mediumaquamarine;
+            color: white;
+        }
+
+        #addbutton:hover {
+            background-color: green;
+            color: white;
+        }
+
+        .del {
+            background-color: tomato;
+            color: white;
+        }
+
+        .del:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .url-container {
+            margin-bottom: 5px;
+        }
     </style>
 
 <body>
@@ -15,15 +63,16 @@
     </h1>
     <h2>Block URL</h2>
     <div id="blockurl">
-        <input class="textbox" id="rejectURL" type="textbox" placeholder="https://example.com">
-        <button id="addbutton">+</button>
+        <input class="textbox" id="rejectURL" type="textbox" placeholder="https://example.com"><button
+            id="addbutton">+</button>
     </div>
     <hr>
     <h2>Blocked URLs</h2>
 
     <div id="blockedurls">
-        <input class="urls textbox" id="1" value="x" disabled><button class="del">×</button>
+        <input class="urls textbox" id="1" disabled><button class="del">×</button>
     </div>
     <hr>
+    <br>
 </body>
 </head>
