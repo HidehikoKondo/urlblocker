@@ -46,13 +46,13 @@ function displayURLs() {
         blockedURLsElement.removeChild(blockedURLsElement.firstChild);
     }
 
-
     // テキストボックスと×ボタンを作成して、blockedURLsElementに追加する
     rejectedURLs.forEach(url => {
         const container = document.createElement('div');
         container.classList.add('url-container');
 
         const input = document.createElement('input');
+        input.classList.add('textbox');
         input.type = 'text';
         input.value = url;
         input.disabled = true;
