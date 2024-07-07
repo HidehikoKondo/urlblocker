@@ -14,11 +14,11 @@ chrome.storage.local.get(['rejectedURLs'], function (result) {
 document.addEventListener('DOMContentLoaded', () => {
     //データ表示を更新
     displayURLs();
-});
 
-
-function addButton() {
     // +ボタンでブロックするURLを追加
+    if (document.getElementById('addbutton') === null) {
+        return;
+    }
     document.getElementById('addbutton').onclick = () => {
         const url = document.getElementById('rejectURL').value;
         if (url) {
@@ -29,7 +29,9 @@ function addButton() {
         //データを表示更新
         displayURLs();
     };
-}
+});
+
+
 
 //データの表示を更新する
 function displayURLs() {
