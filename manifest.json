@@ -1,6 +1,6 @@
 {
-  "name": "URLBlcock",
-  "description": "仕事の妨げになるWebサイトを見えないようにするChrome拡張です",
+  "name": "URL Blcocker - 見ちゃだめ！",
+  "description": "It's a Chrome extension that hides websites that get in the way of your work. 仕事の妨げになるWebサイトを非表示にするChrome拡張です",
   "permissions": [
     "storage",
     "tabs"
@@ -34,7 +34,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "html/*"
+        "html/*",
+        "images/*.png"
       ],
       "matches": [
         "<all_urls>"
